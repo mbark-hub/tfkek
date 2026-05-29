@@ -1,259 +1,124 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>فك الروابط</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BOKA</title>
+
+<link rel="icon" href="https://i.ibb.co/Mqrzhbr/IMG-3020.jpg">
+<link rel="apple-touch-icon" href="https://i.ibb.co/Mqrzhbr/IMG-3020.jpg">
+
+<meta name="theme-color" content="#0b0b0b">
+
+<!-- PWA Manifest داخل الصفحة (بدون ملف خارجي) -->
+<link rel="manifest" href="data:application/manifest+json,{
+  &quot;name&quot;:&quot;BOKA App&quot;,
+  &quot;short_name&quot;:&quot;BOKA&quot;,
+  &quot;start_url&quot;:&quot;/VipDizrt/&quot;,
+  &quot;display&quot;:&quot;standalone&quot;,
+  &quot;background_color&quot;:&quot;#0b0b0b&quot;,
+  &quot;theme_color&quot;:&quot;#ff3b3b&quot;,
+  &quot;icons&quot;:[{
+    &quot;src&quot;:&quot;https://i.ibb.co/Mqrzhbr/IMG-3020.jpg&quot;,
+    &quot;sizes&quot;:&quot;192x192&quot;,
+    &quot;type&quot;:&quot;image/png&quot;
+  }]
+}">
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Tahoma,sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Cairo',sans-serif;
 }
 
 body{
-    min-height:100vh;
-    background:linear-gradient(-45deg,#6a00ff,#ff00c8,#7b2cff,#ff4fd8);
-    background-size:400% 400%;
-    animation:bg 10s ease infinite;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
+  background:#0b0b0b;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  flex-direction:column;
 }
 
-@keyframes bg{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-}
-
-.box{
-    width:90%;
-    max-width:950px;
-    background:rgba(20,20,20,.65);
-    border:1px solid rgba(255,255,255,.1);
-    backdrop-filter:blur(15px);
-    border-radius:30px;
-    padding:35px;
-    box-shadow:
-    0 0 40px rgba(255,0,200,.3),
-    0 0 80px rgba(106,0,255,.3);
-    animation:show 1s ease;
-}
-
-@keyframes show{
-    from{
-        transform:translateY(30px);
-        opacity:0;
-    }
-    to{
-        transform:translateY(0);
-        opacity:1;
-    }
-}
-
-.logo{
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.logo h1{
-    font-size:55px;
-    color:white;
-    text-shadow:0 0 25px #ff00d9;
-}
-
-.logo p{
-    margin-top:10px;
-    color:#ddd;
-    font-size:18px;
-}
-
-.inputBox{
-    position:relative;
-    margin-bottom:25px;
-}
-
-input{
-    width:100%;
-    padding:20px;
-    border:none;
-    outline:none;
-    border-radius:18px;
-    background:rgba(255,255,255,.08);
-    color:white;
-    font-size:17px;
-    transition:.3s;
-}
-
-input::placeholder{
-    color:#ccc;
-}
-
-input:focus{
-    box-shadow:0 0 25px #ff00d9;
-    transform:scale(1.01);
+.glow{
+  position:fixed;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,#ff3b3b33,transparent 70%);
+  filter:blur(80px);
+  z-index:-1;
 }
 
 button{
-    width:100%;
-    padding:18px;
-    border:none;
-    border-radius:18px;
-    background:linear-gradient(90deg,#7b2cff,#ff00c8);
-    color:white;
-    font-size:20px;
-    cursor:pointer;
-    transition:.3s;
-    font-weight:bold;
+  padding:15px 25px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:bold;
+  background:#160d0d;
+  color:#fff;
+  margin:10px;
 }
 
 button:hover{
-    transform:scale(1.02);
-    box-shadow:0 0 30px #ff00d9;
-}
-
-.loading{
-    display:none;
-    margin-top:25px;
-    text-align:center;
-    color:white;
-    font-size:20px;
-}
-
-.result{
-    display:none;
-    margin-top:25px;
-}
-
-textarea{
-    width:100%;
-    height:320px;
-    border:none;
-    outline:none;
-    resize:none;
-    border-radius:20px;
-    padding:20px;
-    background:#111;
-    color:#fff;
-    font-size:15px;
-    line-height:1.8;
-}
-
-.copyBtn{
-    margin-top:15px;
-}
-
-.footer{
-    text-align:center;
-    color:#bbb;
-    margin-top:25px;
-    font-size:14px;
+  background:#221515;
 }
 </style>
+
 </head>
 
 <body>
 
-<div class="box">
+<div class="glow"></div>
 
-    <div class="logo">
-        <h1>فك الروابط</h1>
-        <p>حط الرابط ويفك لك الرابط ويستخرج لك السكربت</p>
-    </div>
+<h1 style="color:#ff3b3b">BOKA APP</h1>
 
-    <div class="inputBox">
-        <input 
-        type="text" 
-        id="urlInput" 
-        placeholder="حط الرابط هنا..." />
-    </div>
-
-    <button onclick="fetchScript()">
-        فك الرابط
-    </button>
-
-    <div class="loading" id="loading">
-        انتظر شوي...
-    </div>
-
-    <div class="result" id="resultBox">
-
-        <textarea id="output"></textarea>
-
-        <button class="copyBtn" onclick="copyText()">
-            نسخ السكربت
-        </button>
-
-    </div>
-
-    <div class="footer">
-        يدعم فقط Lua و Luau
-    </div>
-
-</div>
+<button id="installBtn">📲 تثبيت التطبيق</button>
 
 <script>
-async function fetchScript(){
 
-    let url = document.getElementById("urlInput").value.trim();
-    const loading = document.getElementById("loading");
-    const resultBox = document.getElementById("resultBox");
-    const output = document.getElementById("output");
+let deferredPrompt;
 
-    if(!url || (!url.includes("http") && !url.includes("raw"))){
-        alert("حط الرابط ي حب");
-        return;
-    }
+// يظهر زر التثبيت الحقيقي
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+});
 
-    loading.style.display = "block";
-    resultBox.style.display = "none";
+document.getElementById("installBtn").addEventListener("click", async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+  } else {
+    alert("افتح الموقع من Chrome وانتظر ثواني ثم حاول مرة ثانية");
+  }
+});
 
-    try{
-        // حل مشكلة الحجب (CORS) لروابط Pastebin والروابط الأخرى
-        // نقوم بتوجيه الطلب عبر بروكسي كاسر للحجب مجاني ومستقر
-        const finalUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+// Service Worker (PWA تشغيل فعلي)
+const swCode = `
+self.addEventListener("install", e=>{
+  self.skipWaiting();
+});
 
-        const response = await fetch(finalUrl);
-        if (!response.ok) throw new Error('Network error');
-        
-        const data = await response.json();
-        const text = data.contents; // استخراج النص الصافي للسكربت
+self.addEventListener("fetch", e=>{
+  e.respondWith(fetch(e.request).catch(()=>new Response("Offline")));
+});
+`;
 
-        setTimeout(() => {
+const blob = new Blob([swCode], {type:"text/javascript"});
+const swURL = URL.createObjectURL(blob);
 
-            output.value = text;
+navigator.serviceWorker.register(swURL)
+.then(()=>console.log("SW Ready"));
 
-            loading.style.display = "none";
-            resultBox.style.display = "block";
-
-        },2000);
-
-    }catch(err){
-
-        loading.style.display = "none";
-
-        alert("صار خطأ بالرابط");
-
-    }
-
-}
-
-function copyText(){
-
-    const output = document.getElementById("output");
-
-    output.select();
-    output.setSelectionRange(0,99999);
-
-    navigator.clipboard.writeText(output.value);
-
-    alert("تم نسخ السكربت");
-
-}
 </script>
 
 </body>
